@@ -1,0 +1,20 @@
+# dsh-mcp-sync bundle patch: register the mcp-sync plugin.
+#
+# 自动同步本地 Claude Code、Codex CLI、Cursor Agent 的 MCP 配置。
+# 安装后如需调整配置，在 profile 的 cordis.patch.yml 中按 id 覆盖。
+
+- insert:
+    - id: mcp-sync
+      name: 'dsh-mcp-sync'
+      config:
+        enabled: true
+        autoSync: true
+        autoConnect: true
+        syncInterval: 60000
+        dedupeByCommand: true
+        registerTools: true
+        sources:
+          claude: true
+          codex: true
+          cursor: true
+          dsh: true
